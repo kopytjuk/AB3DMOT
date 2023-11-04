@@ -48,7 +48,9 @@ def main_per_cat(cfg, cat, log, ID_start):
 		tracker, frame_list = initialize(cfg, trk_root, save_dir, subfolder, seq_name, cat, ID_start, hw, log)
 
 		# loop over frame
-		min_frame, max_frame = int(frame_list[0]), int(frame_list[-1])
+		# min_frame, max_frame = int(frame_list[0]), int(frame_list[-1])
+		min_frame, max_frame = 0, 20
+
 		for frame in range(min_frame, max_frame + 1):
 			# add an additional frame here to deal with the case that the last frame, although no detection
 			# but should output an N x 0 affinity for consistency
@@ -109,8 +111,10 @@ def main(args):
 	cfg, settings_show = Config(config_path)
 
 	# overwrite split and detection method
-	if args.split is not '': cfg.split = args.split
-	if args.det_name is not '': cfg.det_name = args.det_name
+	if args.split != '':
+		cfg.split = args.split
+	if args.det_name != '':
+		cfg.det_name = args.det_name
 
 	# print configs
 	time_str = get_timestring()

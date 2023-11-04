@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "ab3dmot"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+packages = [
+    { include = "xinshuo_images", from = "Xinshuo_PyToolbox" },
+    { include = "xinshuo_io", from = "Xinshuo_PyToolbox" },
+    { include = "xinshuo_math", from = "Xinshuo_PyToolbox" },
+    { include = "xinshuo_miscellaneous", from = "Xinshuo_PyToolbox" },
+    { include = "xinshuo_video", from = "Xinshuo_PyToolbox" },
+    { include = "xinshuo_visualization", from = "Xinshuo_PyToolbox" },
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.12"
+numpy = "^1.26.1"
+scikit-learn = "^1.3.2"
+filterpy = "^1.4.5"
+numba = "^0.58.1"
+matplotlib = "^3.8.1"
+pillow = "^10.1.0"
+opencv-python = "^4.8.1.78"
+glob2 = "^0.7"
+pyyaml = "^6.0.1"
+easydict = "^1.11"
+llvmlite = "^0.41.1"
+ipykernel = "^6.26.0"
+scikit-image = "^0.22.0"
+terminaltables = "^3.1.10"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.plugins."poetry.plugin"]
+foo-command = "my_plugin.example_plugin:MyPlugin"
